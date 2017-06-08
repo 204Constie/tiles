@@ -1,0 +1,36 @@
+body {
+  margin: 0; }
+
+.container {
+  background-color: #EDF2F4;
+  width: 80vw;
+  margin: 0 auto; }
+
+.content {
+  display: inline-block;
+  margin: 0;
+  top: 0;
+  left: 0; }
+
+.c-w2x {
+  width: 400px; }
+
+.c-w1x {
+  width: 200px; }
+
+.c-h2x {
+  height: 400px; }
+
+.c-h1x {
+  height: 200px; }
+
+.c-red {
+  background-color: #EF233C; }
+
+.c-blue {
+  background-color: #2D93AD; }
+
+.c-green {
+  background-color: #00BFB2; }
+
+/*# sourceMappingURL=style.css.map */
