@@ -44,42 +44,86 @@ var mockdata = [
   }
 ]
 
+var palettes = {
+  palette1: function(){
+    return '' +
+      '<div class="tile c-w1x c-h2x c-red"></div>\n' +
+      '<div class="tile c-w2x c-h1x c-blue"></div>\n' +
+      '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+      '<div class="tile c-w1x c-h1x c-red"></div>\n' +
+      '<div class="tile c-w2x c-h1x c-blue"></div>\n' +
+      '<div class="tile c-w3x c-h3x c-red">\n' +
+        '<div class="tile c-w2x">\n' +
+          '<div class="tile c-w2x c-h1x c-blue"></div>\n' +
+          '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+          '<div class="tile c-w1x c-h1x c-red"></div>\n' +
+        '</div>\n' +
+        '<div class="tile c-w1x c-h2x c-blue"></div>\n' +
+        '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+        '<div class="tile c-w2x c-h1x c-red"></div>\n' +
+      '</div>\n' +
+      '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+      '<div class="tile c-w1x c-h2x c-blue"></div>\n';
+  },
+
+  palette2: function(){
+    return '' +
+      '<div class="tile c-w2x c-h3x">\n' +
+        '<div class="tile c-w2x c-h1x c-green"></div>\n' +
+        '<div class="tile c-w1x c-h2x c-blue"></div>\n' +
+        '<div class="tile c-w1x c-h2x c-red"></div>\n' +
+      '</div>\n' +
+      '<div class="tile c-w2x c-h3x">\n' +
+        '<div class="tile c-w1x c-h2x c-blue"></div>\n' +
+        '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+        '<div class="tile c-w1x c-h1x c-red"></div>\n' +
+        '<div class="tile c-w2x c-h1x c-green"></div>\n' +
+      '</div>\n';
+  },
+
+  palette3: function(article1, article2){
+    return '' +
+      '<div class="tile c-w3x c-h2x">\n' +
+        '<div class="tile c-w2x c-h1x c-green">\n' +
+          layouts.article(article1) +
+        '</div>\n' +
+        '<div class="tile c-w1x c-h1x c-blue">\n' +
+          layouts.article(article2) +
+        '</div>\n' +
+        '<div class="tile c-w1x c-h1x c-green"></div>\n' +
+        '<div class="tile c-w2x c-h1x c-red"></div>\n' +
+      '</div>\n' +
+      '<div class="tile c-w1x c-h2x c-blue"></div>\n';
+  }
+};
+
+var layouts = {
+  article: function(article){
+    return elements.title(article.title) + elements.content(article.content);
+  }
+};
+
+var elements = {
+  title: function(title){
+    return '<h2 class="c-title">' + title + '</h2>\n';
+  },
+  content: function(content){
+    return '<p class="c-content">' + content + '</p>\n';
+  }
+};
+
+
+
 
 var mockTiles = {
   containerElement: document.getElementById('container'),
-  mockContainer: function(){
-    _.forEach(mockdata, function(element){
-      console.log('element.content.length: ', element.content.length);
-      var classw = '';
-      var classh = '';
-      var classcolor = '';
-      if(element.content.length > 350){
-        classw = 'c-w2x';
-      } else {
-        classw = 'c-w1x';
-      }
-      if(element.content.length > 300 && element.content.length < 400){
-        classh = 'c-h2x';
-      } else {
-        classh = 'c-h1x';
-      }
-      if(element.content.length > 200 && element.content.length < 300){
-        classcolor = 'c-red';
-      } else if(element.content.length > 300 && element.content.length < 400) {
-        classcolor = 'c-blue';
-      } else {
-        classcolor = 'c-green';
-      }
-      mockTiles.containerElement.innerHTML += '<div class="content ' + classw + ' ' + classcolor + ' ' + classh + '">\n' +
-                                                '<div>' + element.title + '</div>\n' +
-                                                '<div>' + element.content + '</div>\n' +
-                                              '</div>';
-    });
+  mockTiles: function(){
+    mockTiles.containerElement.innerHTML = palettes.palette1() + palettes.palette3(mockdata[0], mockdata[1]) + palettes.palette2();
   }
 }
 
-mockTiles.mockContainer();
-
+// mockTiles.mockContainer();
+mockTiles.mockTiles();
 
 
 })(document, window, _);

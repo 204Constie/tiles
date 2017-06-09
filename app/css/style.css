@@ -6,17 +6,31 @@ body {
   width: 80vw;
   margin: 0 auto; }
 
-.content {
+.dummy {
+  display: inline-block; }
+
+.tile {
   display: inline-block;
-  margin: 0;
-  top: 0;
-  left: 0; }
+  float: left;
+  background-color: #f1f442; }
+
+.c-w4x {
+  width: 800px; }
+
+.c-w3x {
+  width: 600px; }
 
 .c-w2x {
   width: 400px; }
 
 .c-w1x {
   width: 200px; }
+
+.c-h4x {
+  height: 800px; }
+
+.c-h3x {
+  height: 600px; }
 
 .c-h2x {
   height: 400px; }
@@ -32,5 +46,11 @@ body {
 
 .c-green {
   background-color: #00BFB2; }
+
+.c-title {
+  text-decoration: underline; }
+
+.c-content {
+  text-decoration: line-through; }
 
 /*# sourceMappingURL=style.css.map */

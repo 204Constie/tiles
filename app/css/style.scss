@@ -1,5 +1,7 @@
 $square-size: 200px;
 $square-size-2x: 400px;
+$square-size-3x: 600px;
+$square-size-4x: 800px;
 
 body {
   margin: 0;
@@ -10,6 +12,7 @@ body {
   width: 80vw;
   margin: 0 auto;
 
+
   // white-space: nowrap;
 
   // display: flex;
@@ -17,29 +20,41 @@ body {
   // flex-wrap: wrap;
 }
 
-.content {
+.dummy {
   display: inline-block;
+}
 
-  // float: left;
-  margin: 0;
-  top: 0;
-  left: 0;
+.tile {
+  display: inline-block;
+  float: left;
+
+  background-color: #f1f442;
 }
 
 //width
+.c-w4x {
+  width: $square-size-4x;
+}
+.c-w3x {
+  width: $square-size-3x;
+}
 .c-w2x {
   width: $square-size-2x;
 }
-
 .c-w1x {
   width: $square-size;
 }
 
 //height
+.c-h4x {
+  height: $square-size-4x;
+}
+.c-h3x {
+  height: $square-size-3x;
+}
 .c-h2x {
   height: $square-size-2x;
 }
-
 .c-h1x {
   height: $square-size;
 }
@@ -55,4 +70,13 @@ body {
 
 .c-green {
   background-color: #00BFB2;
+}
+
+//elements
+.c-title {
+  text-decoration: underline;
+}
+
+.c-content {
+  text-decoration: line-through;
 }
